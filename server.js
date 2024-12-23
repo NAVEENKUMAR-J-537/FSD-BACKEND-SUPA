@@ -13,12 +13,12 @@ const PORT=process.env.PORT || 5000
 const prisma = new PrismaClient();
 
 // CORS configuration (allowing frontend on Vercel)
-// const corsOptions = {
-//     origin: 'https://fsd-task.vercel.app', // Your frontend URL
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     credentials: true,
-// };
-app.use(cors());
+const corsOptions = {
+    origin: 'https://fsd-task.vercel.app', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+};
+app.use(cors(corsOptions));
 
 // Endpoint for adding employees
 app.post('/api/employees', async (req, res) => {
