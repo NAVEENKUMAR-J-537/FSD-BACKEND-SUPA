@@ -7,6 +7,7 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+const PORT=process.env.PORT || 5000
 
 // Initialize Prisma Client
 const prisma = new PrismaClient();
@@ -63,6 +64,6 @@ app.post('/api/employees', async (req, res) => {
 });
 
 // Start the server
-app.listen(5000, () => {
+app.listen(PORT, () => {
     console.log('Server running on port 5000');
 });
